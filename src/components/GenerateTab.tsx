@@ -28,7 +28,7 @@ export default function GenerateTab({ loading, n, images, onFavorite }: Props) {
     );
 
   const cols =
-    n === 1 ? "grid-cols-1" : n === 2 ? "grid-cols-2" : "grid-cols-3";
+    images.length === 1 ? "grid-cols-1" : images.length === 2 ? "grid-cols-2" : "grid-cols-3";
 
   return (
     <div className={`grid ${cols} gap-2`}>
