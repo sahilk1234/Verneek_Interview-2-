@@ -28,18 +28,28 @@ export default function GenerateTab({ loading, n, images, onFavorite }: Props) {
     );
 
   const cols =
-    images.length === 1 ? "grid-cols-1" : images.length === 2 ? "grid-cols-2" : "grid-cols-3";
+    images.length === 1
+      ? "grid-cols-1"
+      : images.length === 2
+        ? "grid-cols-2"
+        : "grid-cols-3";
 
   return (
-    <div className={`grid ${cols} gap-2`}>
-      {images.map((img, i) => (
-        <ImageCard
-          key={img.id}
-          img={img}
-          index={i}
-          onFavorite={() => onFavorite(img.id)}
-        />
-      ))}
+    <div className="flex flex-col gap-3">
+      <p className="text-xs text-gray-400 italic truncate">
+        "{images[0].prompt}"
+      </p>
+
+      <div className={`grid ${cols} gap-2`}>
+        {images.map((img, i) => (
+          <ImageCard
+            key={img.id}
+            img={img}
+            index={i}
+            onFavorite={() => onFavorite(img.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 }
