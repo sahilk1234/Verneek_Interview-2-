@@ -14,7 +14,7 @@ type Tab = "generate" | "history" | "favorites";
 const QueryPrompt = async (prompt: string, n: number) => {
   const openai = new OpenAI({
     apiKey: "OPEN_AI_KEY",
-    dangerouslyAllowBrowser: true,
+   dangerouslyAllowBrowser: true,
   });
   const result = await openai.images.generate({
     model: "gpt-image-1.5",
@@ -81,6 +81,8 @@ export default function App() {
       setCurrentImages(newImages);
       setHistory((prev) => [newGroup, ...prev]);
       setHistoryPage(0);
+      setPrompt("");
+      setN(1);
     } catch (e: any) {
       setError(e?.message || "Something went wrong.");
     } finally {
