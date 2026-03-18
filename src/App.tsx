@@ -14,6 +14,7 @@ type Tab = "generate" | "history" | "favorites";
 const QueryPrompt = async (prompt: string, n: number) => {
   const openai = new OpenAI({
     apiKey: "OPEN_AI_KEY",
+    dangerouslyAllowBrowser: true,
   });
   const result = await openai.images.generate({
     model: "gpt-image-1.5",
